@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Rubik:400,700'>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+          }
+          
+          body {
+            background: #e35869;
+            font-family: 'Rubik', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+           
+          }
+          .main{
+      
+            width: 70vh;
+            height: 80vh;
+        
+           
+          }
+          .body-main{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70%;
+            
+          }
+          .headings{
+            display: flex;
+            justify-content: space-between;
+          }
+        .headings img{
+            width: 20vh;
+            height: 20vh;
+           
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        {% for x in stud %}
+        <div class="headings">
+            <h1>Welcome {{x.first_name}} </h1>
+            <img src="{{x.passport.url}}" alt="">
+        </div>
+        <div class="body-main">
+            <div class="details">
+                <h3>Name</h3>
+                <h3>Level</h3>
+                <h3>Matric</h3>
+                <h3>Year</h3>
+                <h3>Faculty</h3>
+                <h3>Department</h3>
+               
+            </div>
+            <div class="userdeets">
+                
+                <h3>{{x.full_name}}</h3>
+                <h3>{{x.level}}</h3>
+                <h3>{{x.matric}}</h3>
+                <h3>{{x.grad_year}}</h3>
+                <h3>{{x.faculty}}</h3>
+                <h3>{{x.department}}</h3>
+                {% endfor %}
+              
+            </div>
+       
+        </div>
+        <a href="{% url 'logoutview' %}">Logout</a>
+    </div>
+</body>
+</html>
